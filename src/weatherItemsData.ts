@@ -7,8 +7,9 @@ import snowBg from '../public/assets/winter-bg.jpg';
 import sunSound from '../public/assets/sounds/summer.mp3';
 import rainSound from '../public/assets/sounds/rain.mp3';
 import snowSound from '../public/assets/sounds/winter.mp3';
+import { IWeatherData } from './models';
 
-export const weatherItemsData = [
+export const weatherItemsData: IWeatherData[] = [
 	{
 		id: 'sun',
 		icon: sunIcon,

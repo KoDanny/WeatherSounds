@@ -7,7 +7,7 @@ const {
 
 module.exports = {
 	context: getPath('src'),
-	entry: './index.js',
+	entry: './index.ts',
 	output: {
 		filename: '[name].js',
 		path: getPath('build'),
@@ -15,6 +15,10 @@ module.exports = {
 	},
 
 	plugins: [htmlWebpackPlugin, copyWebpackPlugin, miniCssExtractPlugin],
+
+	resolve: {
+		extensions: ['.ts', '.tsx', '.js', '.jsx'],
+	},
 
 	module: {
 		rules: [
@@ -65,6 +69,18 @@ module.exports = {
 				generator: {
 					filename: 'assets/sounds/[name][ext]',
 				},
+			},
+			{
+				test: /\.[tj]sx?$/,
+				use: [
+					{
+						loader: 'ts-loader',
+						options: {
+							configFile: 'configs/typescript/tsconfig.json',
+						},
+					},
+				],
+				exclude: /node_modules/,
 			},
 		],
 	},
