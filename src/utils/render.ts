@@ -1,4 +1,6 @@
-export function render(root, itemsData = {}) {
+import { IWeatherData } from '../models';
+
+export function render(root: HTMLElement, itemsData: IWeatherData[]) {
 	const $buttonsContainer = document.createElement('div');
 	$buttonsContainer.classList.add('buttons-container');
 
